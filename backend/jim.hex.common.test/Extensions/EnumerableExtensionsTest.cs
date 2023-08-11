@@ -11,6 +11,7 @@ namespace jim.hex.common.test.Extensions
     public class EnumerableExtensionsTest
     {
         [Fact]
+
         public void WhenInvoqueHasContent_ListIsNull_ReturnFalse()
         {
             List<int> list = null;

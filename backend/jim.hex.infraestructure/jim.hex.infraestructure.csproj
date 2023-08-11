@@ -6,4 +6,17 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\jim.hex.common\jim.hex.common.csproj" />
+    <ProjectReference Include="..\jim.hex.domain\jim.hex.domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="extensions\" />
+  </ItemGroup>
+
 </Project>

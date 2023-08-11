@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\jim.hex.common\jim.hex.common.csproj" />
+  </ItemGroup>
+
 </Project>
