@@ -17,7 +17,8 @@ namespace jim.hex.infraestructure.Repository
         private readonly DbContext _context;
         private readonly IAuditContext<AuditUser> _auditContext;
 
-        public UnitOfWork(DbContext context, IAuditContext<AuditUser> auditContext)
+        public UnitOfWork(DbContext context, 
+                        IAuditContext<AuditUser> auditContext)
         {
             _context = context;
             _auditContext = auditContext;

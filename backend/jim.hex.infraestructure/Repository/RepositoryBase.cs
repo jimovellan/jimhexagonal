@@ -16,7 +16,6 @@ namespace jim.hex.infraestructure.Repository
         public RepositoryBase(DbContext context)
         {
             _context = context;
-            _auditContext = auditContext;
             _dbSet = context.Set<TEntity>();
         }
 
