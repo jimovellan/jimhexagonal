@@ -11,10 +11,9 @@ namespace jim.hex.infraestructure.Repository
     public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : AggregateRoot
     {
         private readonly DbContext _context;
-        private readonly IAuditContext<AuditUser> _auditContext;
         private DbSet<TEntity> _dbSet;
 
-        public RepositoryBase(DbContext context, IAuditContext<AuditUser> auditContext)
+        public RepositoryBase(DbContext context)
         {
             _context = context;
             _auditContext = auditContext;
@@ -75,6 +74,9 @@ namespace jim.hex.infraestructure.Repository
                         .ToListAsync(cancellationToken);
         }
         #endregion
+
+        #region Search for with cached data in context
+
         public async Task<IEnumerable<TEntity>> Find(CancellationToken cancellationToken = default)
         {
             return await _dbSet.ToListAsync(cancellationToken);
@@ -114,7 +116,8 @@ namespace jim.hex.infraestructure.Repository
         }
 
 
-       
+
+        #endregion
 
 
         private IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> where)
