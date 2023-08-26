@@ -28,7 +28,7 @@ jobs:
       - name: sonarscan-dotnet
         uses: highbyte/sonarscan-dotnet@v2.2.3
         with:
-          projectBaseDir: "src/"
+          projectBaseDir: "backend/"
         
 
 
