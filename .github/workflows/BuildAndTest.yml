@@ -25,8 +25,14 @@ jobs:
       - name: Test
         run: dotnet test 
         working-directory: ./backend/
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{secrets.SERVER_PRIVATE_KEY}}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan your_server_hostname >> ~/.ssh/known_hosts
       - name: copiar en servidor
-        run: sshpass -p "${{secrets.PSW_SERVER}}" scp *.* ${{secrets.USER_SERVER}}@${{secrets.URL_SERVER}}:~/prueba
+        run: scp -r . ${{secrets.USER_SERVER}}@${{secrets.URL_SERVER}}:~/prueba
         working-directory: ./backend/
     
         
