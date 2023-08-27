@@ -32,7 +32,7 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan ${{secrets.URL_SERVER}} >> ~/.ssh/known_hosts
       - name: copiar en servidor
-        run: scp -r . ${{secrets.USER_SERVER}}@${{secrets.URL_SERVER}}:~/prueba
+        run: scp -i ~/.ssh/id_rsa -r . ${{secrets.USER_SERVER}}@${{secrets.URL_SERVER}}:~/prueba
         working-directory: ./backend/
     
         
