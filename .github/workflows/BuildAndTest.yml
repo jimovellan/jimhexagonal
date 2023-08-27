@@ -27,6 +27,7 @@ jobs:
         working-directory: ./backend/
       - name: copiar en servidor
         run: sshpass -p "${{secrets.PWD_SERVER}}" scp *.* ${{secrets.USER_SERVER}}@${{secrets.URL_SERVER}}:~/prueba
+        working-directory: ./backend/
     
         
 
