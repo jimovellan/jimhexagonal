@@ -26,7 +26,7 @@ jobs:
         run: dotnet test 
         working-directory: ./backend/
       - name: Crear publicacion
-        run: dotnet publish --configuration Release --output ~/publicacion
+        run: dotnet publish --configuration Release --output ~/publicacion --runtime linux-x64
         working-directory: ./backend/
       - name: Set up SSH
         run: |
