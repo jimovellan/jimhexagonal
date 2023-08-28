@@ -25,6 +25,9 @@ jobs:
       - name: Test
         run: dotnet test 
         working-directory: ./backend/
+      - name: Crear publicacion
+        run: dotnet publish --configuration Release --output ~/publicacion
+        working-directory: ./backend/
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
@@ -32,7 +35,7 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan ${{secrets.URL_SERVER}} >> ~/.ssh/known_hosts
       - name: copiar en servidor archivos
-        run: scp -i ~/.ssh/id_rsa -r ./* ${{secrets.USER_SERVER}}@${{secrets.URL_SERVER}}:~/prueba
+        run: scp -i ~/.ssh/id_rsa -r ~/publicacion/* ${{secrets.USER_SERVER}}@${{secrets.URL_SERVER}}:~/prueba
         working-directory: ./backend/
     
         
